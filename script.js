@@ -29,11 +29,11 @@ $(document).ready( function(){
                 $(this).attr("style","background-color: lightgray;");
             } else if ((thisDate.format("YYYYMMDD") === moment().format("YYYYMMDD") && parseInt($(this).parent().data("hour")) === hour)) {
                 var style = [
-                    'background: -webkit-linear-gradient(top, lightgray ' + percentOfHour + '%, lightcoral);',
-                    'background: -moz-linear-gradient(top, lightgray ' + percentOfHour + '%, lightcoral);',
-                    'background: -ms-linear-gradient(top, lightgray ' + percentOfHour + '%, lightcoral);',
-                    'background: linear-gradient(top, lightgray ' + percentOfHour + '%, lightcoral);',
-                    'background: -o-linear-gradient(top,lightgray ' + percentOfHour + '%, lightcoral);',
+                    'background: -webkit-linear-gradient(left, lightgray ' + percentOfHour + '%, crimson);',
+                    'background: -moz-linear-gradient(left, lightgray ' + percentOfHour + '%, crimson);',
+                    'background: -ms-linear-gradient(left, lightgray ' + percentOfHour + '%, crimson);',
+                    'background: linear-gradient(left, lightgray ' + percentOfHour + '%, crimson);',
+                    'background: -o-linear-gradient(left,lightgray ' + percentOfHour + '%, crimson);',
                 ].join(";")
                 $(this).attr("style", style);
             } else {

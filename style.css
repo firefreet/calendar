@@ -9,8 +9,20 @@
 }
 
 .col .row {
-    height: 75px; 
+    height: 65px; 
 }
+.rule {
+    height: 20px;
+}
+
+.btn:active > .fa-arrow-left, .btn:active > .fa-arrow-right {
+    color: crimson;
+}
+
+.fa-unlock {
+    color: crimson;
+}
+
 .container-fluid, .container {
     text-align: right;
     padding-top: 1em;
@@ -20,6 +32,10 @@
 .btn.col-2 {
     text-align: center;
     line-height: 75px;
+}
+
+.fa-arrow-right, .fa-arrow-left, .fa-lock {
+    color: lightgreen;
 }
 
 textarea {
