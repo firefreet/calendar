@@ -10,7 +10,7 @@ The app displays standard business hours (9 a.m. to 5 p.m.). Each time slot repr
 
 * A save button
 
-* Current hour gradient color (grey to red) is based on % of hour gone by. Past days/hours are grey. Future days/hours are green. Colors dynamically change as time passes.
+* Current hour gradient color (grey -> red -> green) is based on % of hour gone by. Past days/hours are grey. Future days/hours are green. Colors dynamically change as time passes.
 
 Clicking on the save button will store the time and user input in `localStorage`.
 
