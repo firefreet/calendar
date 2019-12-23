@@ -24,16 +24,17 @@ $(document).ready( function(){
         $("textarea").each( function(){
             percentOfHour = (((moment().minute() * 60) + moment().second()) / 3600) * 100;
             percentOfHour = parseFloat(percentOfHour.toFixed(5));
+            greenPercent = Math.min(percentOfHour + 6,99.9999);
             var hour = moment().hour();
             if((thisDate.format("YYYYMMDD") === moment().format("YYYYMMDD") && parseInt($(this).parent().data("hour")) < hour) || thisDate.set(cleanDate).isBefore(moment().set(cleanDate))) {
                 $(this).attr("style","background-color: lightgray;");
             } else if ((thisDate.format("YYYYMMDD") === moment().format("YYYYMMDD") && parseInt($(this).parent().data("hour")) === hour)) {
                 var style = [
-                    'background: -webkit-linear-gradient(left, lightgray ' + percentOfHour + '%, crimson);',
-                    'background: -moz-linear-gradient(left, lightgray ' + percentOfHour + '%, crimson);',
-                    'background: -ms-linear-gradient(left, lightgray ' + percentOfHour + '%, crimson);',
-                    'background: linear-gradient(left, lightgray ' + percentOfHour + '%, crimson);',
-                    'background: -o-linear-gradient(left,lightgray ' + percentOfHour + '%, crimson);',
+                    'background: -webkit-linear-gradient(left, lightgray ' + percentOfHour + '%, crimson, lightgreen ' + greenPercent + '%);',
+                    'background: -moz-linear-gradient(left, lightgray ' + percentOfHour + '%, crimson, lightgreen ' + greenPercent + '%);',
+                    'background: -ms-linear-gradient(left, lightgray ' + percentOfHour + '%, crimson, lightgreen ' + greenPercent + '%);',
+                    'background: linear-gradient(left, lightgray ' + percentOfHour + '%, crimson, lightgreen ' + greenPercent + '%);',
+                    'background: -o-linear-gradient(left,lightgray ' + percentOfHour + '%, crimson, lightgreen ' + greenPercent + '%);',
                 ].join(";")
                 $(this).attr("style", style);
             } else {
