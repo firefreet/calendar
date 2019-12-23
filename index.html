@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed|Rokkitt&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Day Planner</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center w-100 pt-2">
+                    Work Day Scheduler
+                </h1>
+                <h5 class="text-center w-100">
+                    A simple calendar app scheduling your work day. <br> Select arrow buttons to navigate days.
+                </h5>
+            </div>
+            <div class="col-4">
+                <button class="btn btn-dark w-100">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+            </div>
+            <div class="col-4">
+                <h3 class="display-date text-center w-100"></h3>
+            </div>
+            <div class="col-4">
+                <button class="btn btn-dark w-100"><i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="row w-100 mx-0 pb-2">
+                <div class="col-4"></div>
+                <div class="col-4"><button id="today" class="w-100 btn btn-outline-dark">Go to Today</button></div>
+                <div class="col-4"></div>
+            </div>
+            <div class="row bg-dark w-100 m-0 p-0">
+                ""
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>
+                    <div id="height" class="row text-center ">
+                        <div class="col-2 px-0">Hour</div>
+                        <div class="col-8 px-0">Event</div>
+                        <div class="col-2 px-0">Save</div>
+                    </div>
+                </h2>
+                <div class="row my-1" data-hour="9">
+                    <div class="col-2 hour-displ">09 AM</div>
+                    <textarea class="col-8"></textarea>
+                    <button class="col-2 btn btn-dark disabled w-100 h-100 p-0 m-0">
+                        <i class="fas fa-lg"></i>
+                    </button>
+                </div>
+                <div class="row my-1" data-hour="10">
+                    <div class="col-2 hour-displ">10 AM</div>
+                    <textarea class="col-8"></textarea>
+                    <button class="col-2 btn btn-dark disabled w-100 h-100 p-0 m-0">
+                        <i class="fas fa-lg"></i>
+                    </button>
+                </div>
+                <div class="row my-1" data-hour="11">
+                    <div class="col-2 hour-displ">11 AM</div>
+                    <textarea class="col-8"></textarea>
+                    <button class="col-2 btn btn-dark disabled w-100 h-100 p-0 m-0">
+                        <i class="fas fa-lg"></i>
+                    </button>
+                </div>
+                <div class="row my-1" data-hour="12">
+                    <div class="col-2 hour-displ">12 AM</div>
+                    <textarea class="col-8"></textarea>
+                    <button class="col-2 btn btn-dark disabled w-100 h-100 p-0 m-0">
+                        <i class="fas fa-lg"></i>
+                    </button>
+                </div>
+                <div class="row my-1" data-hour="13">
+                    <div class="col-2 hour-displ">01 PM</div>
+                    <textarea class="col-8"></textarea>
+                    <button class="col-2 btn btn-dark disabled w-100 h-100 p-0 m-0">
+                        <i class="fas fa-lg"></i>
+                    </button>
+                </div>
+                <div class="row my-1" data-hour="14">
+                    <div class="col-2 hour-displ">02 PM</div>
+                    <textarea class="col-8"></textarea>
+                    <button class="col-2 btn btn-dark disabled w-100 h-100 p-0 m-0">
+                        <i class="fas fa-lg"></i>
+                    </button>
+                </div>
+                <div class="row my-1" data-hour="15">
+                    <div class="col-2 hour-displ">03 PM</div>
+                    <textarea class="col-8"></textarea>
+                    <button class="col-2 btn btn-dark disabled w-100 h-100 p-0 m-0">
+                        <i class="fas fa-lg"></i>
+                    </button>
+                </div>
+                <div class="row my-1" data-hour="16">
+                    <div class="col-2 hour-displ">04 PM</div>
+                    <textarea class="col-8"></textarea>
+                    <button class="col-2 btn btn-dark disabled w-100 h-100 p-0 m-0">
+                        <i class="fas fa-lg"></i>
+                    </button>
+                </div>
+                <div class="row my-1" data-hour="17">
+                    <div class="col-2 hour-displ">05 PM</div>
+                    <textarea class="col-8"></textarea>
+                    <button class="col-2 btn btn-dark disabled w-100 h-100 p-0 m-0">
+                        <i class="fas fa-lg"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ceb7ababc1.js" crossorigin="anonymous"></script>
+    <script src="moment.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+.col-2, .col-8 {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 1em;
+}
+#height {
+    height: 50px;
+}
+
+.col .row {
+    height: 75px; 
+}
+.hour-displ {
+    text-align: right;
+    padding-top: 1em;
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    font-size: x-large;
+}
+.btn.col-2 {
+    text-align: center;
+    line-height: 75px;
+}
+
+textarea {
+    font-family: 'Rokkitt', serif;
+    font-size: x-large;
+}
+
+@media screen and (max-width: 500px) {
+    h2, h5, .display-date, #today {
+        font-size: small;
+    }
+    #height {
+        height: 25px;
+    }
+    .hour-displ {
+        font-size: medium;
+    }
+}
