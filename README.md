@@ -12,3 +12,4 @@ The app displays standard business hours (9 a.m. to 5 p.m.). Each time slot repr
 
 Clicking on the save button will store the time and user input in `localStorage`.
 
+https://firefreet.github.io/calendar/
