@@ -7,7 +7,9 @@ $(document).ready( function(){
     var thisDateString = thisDate.format("YYYY-MM-DD");
     var aptString = "appointments" + thisDateString;
     var thisDayData = {}
-    var cleanDate = {'hour':"0",'minute':'0','second':'0'}
+    var cleanDate = {'hour':"0",'minute':'0','second':'0','millisecond':'0'}
+    var percentOfHour = 0
+    var percentToGo = 0
 
     // set listeners
     $(".btn>.fa-lg").parent().on("click", save);
@@ -20,11 +22,20 @@ $(document).ready( function(){
     var i = setInterval( function() {
         // background based on if the hour has passed, is current or is future
         $("textarea").each( function(){
+            percentOfHour = (((moment().minute() * 60) + moment().second()) / 3600) * 100;
+            percentOfHour = parseFloat(percentOfHour.toFixed(5));
             var hour = moment().hour();
-            if((thisDate.format("YYYYMMDD") === moment().format("YYYYMMDD") && parseInt($(this).parent().data("hour")) < hour) || thisDate.set(cleanDate) < moment().set(cleanDate) ) {
+            if((thisDate.format("YYYYMMDD") === moment().format("YYYYMMDD") && parseInt($(this).parent().data("hour")) < hour) || thisDate.set(cleanDate).isBefore(moment().set(cleanDate))) {
                 $(this).attr("style","background-color: lightgray;");
             } else if ((thisDate.format("YYYYMMDD") === moment().format("YYYYMMDD") && parseInt($(this).parent().data("hour")) === hour)) {
-                $(this).attr("style","background-color: lightcoral;");
+                var style = [
+                    'background: -webkit-linear-gradient(top, lightgray ' + percentOfHour + '%, lightcoral);',
+                    'background: -moz-linear-gradient(top, lightgray ' + percentOfHour + '%, lightcoral);',
+                    'background: -ms-linear-gradient(top, lightgray ' + percentOfHour + '%, lightcoral);',
+                    'background: linear-gradient(top, lightgray ' + percentOfHour + '%, lightcoral);',
+                    'background: -o-linear-gradient(top,lightgray ' + percentOfHour + '%, lightcoral);',
+                ].join(";")
+                $(this).attr("style", style);
             } else {
                 $(this).attr("style","background-color: lightgreen;");
             }

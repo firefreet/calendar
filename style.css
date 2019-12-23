@@ -11,7 +11,7 @@
 .col .row {
     height: 75px; 
 }
-.hour-displ {
+.container-fluid, .container {
     text-align: right;
     padding-top: 1em;
     font-family: 'Fira Sans Extra Condensed', sans-serif;
@@ -25,6 +25,10 @@
 textarea {
     font-family: 'Rokkitt', serif;
     font-size: x-large;
+}
+
+.display-date {
+    font-family: 'Mansalva', cursive;
 }
 
 @media screen and (max-width: 500px) {
