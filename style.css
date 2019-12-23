@@ -1,3 +1,7 @@
+body {
+    line-height: 1;
+}
+
 .col-2, .col-8 {
     border-color: black;
     border-style: solid;
