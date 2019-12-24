@@ -3,13 +3,13 @@ $(document).ready(function () {
         console.log(x);
     };
     var aptObj = {};
-    var thisDate = moment()
+    var thisDate = moment().startOf("day");
     var thisDateString = thisDate.format("YYYY-MM-DD");
     var aptString = "appointments" + thisDateString;
     var thisDayData = {}
-    var cleanDate = { 'hour': "0", 'minute': '0', 'second': '0', 'millisecond': '0' }
     var percentOfHour = 0
     var calRow = $("div.row.my-1")
+    var startOfDay = moment().startOf("day");
 
     // clone calendar row for hours 10AM to 5PM. 
     // set data-hour and text value for consective hours
@@ -17,8 +17,7 @@ $(document).ready(function () {
         var newCalRow = calRow.clone();
         newCalRow.attr("data-hour", i);
         // transform 
-        var v = moment().hour(i).format("hh A")
-        c(v);
+        var v = moment().hour(i).format("hh A");
         newCalRow.children("div.hour-displ").text(v);
         $("div.container>div.row>div.col").append(newCalRow);
     }
@@ -34,13 +33,14 @@ $(document).ready(function () {
     var i = setInterval(function () {
         // background based on if the hour has passed, is current or is future
         $("textarea").each(function () {
+            startOfDay = moment().startOf("day");
             var hour = moment().hour();
             // set grey if day or hour is passed
-            if ((thisDate.format("YYYYMMDD") === moment().format("YYYYMMDD") && parseInt($(this).parent().data("hour")) < hour) || thisDate.set(cleanDate).isBefore(moment().set(cleanDate))) {
+            if ((thisDate.isSame(startOfDay) && parseInt($(this).parent().data("hour")) < hour) || thisDate.isBefore(startOfDay)) {
                 $(this).attr("style", "background-color: lightgray;");
             }
             // for current hour of current day, set gradient from gray to green (with a red bar at the percentage of the hour past)
-            else if ((thisDate.format("YYYYMMDD") === moment().format("YYYYMMDD") && parseInt($(this).parent().data("hour")) === hour)) {
+            else if ((thisDate.isSame(startOfDay) && parseInt($(this).parent().data("hour")) === hour)) {
                 percentOfHour = (((moment().minute() * 60) + moment().second()) / 3600) * 100;
                 percentOfHour = Math.min(parseFloat(percentOfHour.toFixed(5)), 97);
                 if (percentOfHour < 3) { greenPercent = percentOfHour * 3; redPercent = percentOfHour * 1.5; }
@@ -73,7 +73,7 @@ $(document).ready(function () {
     // populates the page based on any existing saved data
     // and sets the buttons to Saved (locked)
     function setPage() {
-        if (thisDate.format("YYYYMMDD") === moment().format("YYYYMMDD")) {
+        if (thisDate.isSame(startOfDay)) {
             thisDateString = thisDateString + " (Today)"
         }
         $(".display-date").text(thisDateString);
@@ -116,12 +116,12 @@ $(document).ready(function () {
         if ($(this).children(".fa-arrow-right").length) {
             thisDate = thisDate.add('1', 'd');
         } else if ($(this).attr("id") === "today") {
-            thisDate = moment();
+            thisDate = moment().startOf("day");
         } else {
             thisDate = thisDate.subtract('1', 'd');
         };
         // display the 'go to today' button if any other date is displayed
-        if (thisDate.format("YYYYMMDD") === moment().format("YYYYMMDD")) {
+        if (thisDate.isSame(startOfDay)) {
             $("#today").css("visibility", "hidden");
         } else {
             $("#today").css("visibility", "visible");
